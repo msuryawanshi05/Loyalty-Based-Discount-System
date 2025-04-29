@@ -9,25 +9,25 @@ RxRewards is a loyalty program web platform tailored for medical supply stores. 
 # 🚀 Features
 
 🧑‍⚕️ Customer Management  
-  Add, edit, delete, and view customer details including loyalty points
+ Add, edit, delete, and view customer details including loyalty points
 
 💊 Product Management  
-  Maintain a database of medical products with pricing and categories
+ Maintain a database of medical products with pricing and categories
 
 🛒 Purchase Tracking  
-  Record and manage detailed purchase histories for customers
+ Record and manage detailed purchase histories for customers
 
 💸 Discount Management  
-  Create and configure discount schemes based on eligibility criteria
+ Create and configure discount schemes based on eligibility criteria
 
 📊 Admin Dashboard  
-  Visual overview of purchases, customers, and loyalty statistics
+ Visual overview of purchases, customers, and loyalty statistics
 
 📄 About Page  
-  Informational section about the RxRewards program
+ Informational section about the RxRewards program
 
 🔐 Admin Authentication  
-  Secured login access for store administrators
+ Secured login access for store administrators
 
 ---
 
@@ -39,17 +39,16 @@ A modern web browser
 
 ---
 
- 📦 Installation
+📦 Installation
 
 Clone the repository:
 
-bash
 git clone https://github.com/msuryawanshi05/rxrewards.git
 cd rxrewards
 
 Create a virtual environment and activate it:
 python -m venv venv
-venv\Scripts\activate  # On Windows
+venv\Scripts\activate # On Windows
 
 Install required packages:
 pip install -r requirements.txt
@@ -90,15 +89,15 @@ PurchaseDetail (PurchaseDetailID, PurchaseID, PurchaseDate, TotalAmount)
 Discount (DiscountID, DiscountType, EligibilityCriteria, Percentage)
 
 ⚠️ Security Note
-This is a basic prototype and not production-ready. Before deployment:
-
+This is a basic prototype and not production-ready.
+Before deployment:
 Implement proper admin auth (e.g., Flask-Login, hashed passwords)
-
 Use HTTPS in production
-
 Add CSRF protection and input validation
-
 Schedule regular database backups
+
+📜 License
+This project is open-source and available under the MIT License.
 
 🧑‍💻 Author
 Mukul Suryawanshi
