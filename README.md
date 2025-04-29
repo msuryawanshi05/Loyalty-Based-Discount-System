@@ -43,7 +43,7 @@ A modern web browser
 
 Clone the repository:
 
-git clone https://github.com/msuryawanshi05/rxrewards.git
+git clone https://github.com/msuryawanshi05/Loyalty-Based-Discount-System.gitt
 cd rxrewards
 
 Create a virtual environment and activate it:
