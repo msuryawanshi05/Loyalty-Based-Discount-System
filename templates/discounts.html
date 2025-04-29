@@ -1,0 +1,78 @@
+{% extends 'base.html' %} {% block content %}
+<section class="container">
+	<h2 class="text-2xl font-bold mb-4">Manage Discounts</h2>
+	{% if messages %} {% for category, message in messages %}
+	<div class="flash {{ category }}">{{ message }}</div>
+	{% endfor %} {% endif %}
+	<div class="form">
+		<h3 class="text-lg font-semibold mb-4">Add New Discount</h3>
+		<form method="POST">
+			<div class="form-group">
+				<label for="discount_type">Discount Type</label>
+				<input
+					type="text"
+					name="discount_type"
+					id="discount_type"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<label for="eligibility_criteria">Eligibility Criteria</label>
+				<input
+					type="text"
+					name="eligibility_criteria"
+					id="eligibility_criteria"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<label for="percentage">Percentage</label>
+				<input
+					type="number"
+					step="0.01"
+					name="percentage"
+					id="percentage"
+					required
+				/>
+			</div>
+			<button type="submit" class="btn bg-green-600 hover:bg-green-700">
+				Add Discount
+			</button>
+		</form>
+	</div>
+	<h3 class="text-lg font-semibold mt-6 mb-4">Discount List</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Discount Type</th>
+				<th>Eligibility Criteria</th>
+				<th>Percentage</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for discount in discounts %}
+			<tr>
+				<td>{{ discount[0] }}</td>
+				<td>{{ discount[1] }}</td>
+				<td>{{ discount[2] }}</td>
+				<td>{{ '%.2f'|format(discount[3]) }}%</td>
+				<td>
+					<a
+						href="{{ url_for('edit_discount', discount_id=discount[0]) }}"
+						class="btn bg-blue-600 hover:bg-blue-700"
+						>Edit</a
+					>
+					<a
+						href="{{ url_for('delete_discount', discount_id=discount[0]) }}"
+						class="btn bg-red-600 hover:bg-red-700"
+						>Delete</a
+					>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</section>
+{% endblock %}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RxRewards - Admin Panel</title>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<header
+			class="bg-blue-600 text-white p-4 flex justify-between items-center"
+		>
+			<h1 class="text-2xl font-bold">RxRewards</h1>
+			<nav class="flex space-x-5">
+				<a
+					href="{{ url_for('dashboard') }}"
+					class="text-white hover:text-gray-200"
+					title="Home"
+					><i class="fas fa-home"></i
+				></a>
+				<a
+					href="{{ url_for('customers') }}"
+					class="text-white hover:text-gray-200"
+					title="Customers"
+					><i class="fas fa-users"></i
+				></a>
+				<a
+					href="{{ url_for('products') }}"
+					class="text-white hover:text-gray-200"
+					title="Products"
+					><i class="fas fa-box"></i
+				></a>
+				<a
+					href="{{ url_for('purchases') }}"
+					class="text-white hover:text-gray-200"
+					title="Purchases"
+					><i class="fas fa-shopping-cart"></i
+				></a>
+				<a
+					href="{{ url_for('discounts') }}"
+					class="text-white hover:text-gray-200"
+					title="Discounts"
+					><i class="fas fa-percent"></i
+				></a>
+				<a
+					href="{{ url_for('logout') }}"
+					class="text-white hover:text-gray-200"
+					title="Logout"
+					><i class="fas fa-sign-out-alt"></i
+				></a>
+			</nav>
+		</header>
+
+		<main>
+			<div class="container">
+				{% with messages = get_flashed_messages(with_categories=true) %}
+				{% if messages %} {% for category, message in messages %}
+				<div class="flash {{ category }}">{{ message }}</div>
+				{% endfor %} {% endif %} {% endwith %} {% block content %}{%
+				endblock %}
+			</div>
+		</main>
+
+		<footer>
+			<div class="container">
+				<p>
+					© 2025 RxRewards. All rights reserved. |
+					<a href="{{ url_for('about') }}">About</a> |
+					<a href="#">Privacy Policy</a> |
+					<a href="#">Terms of Service</a> | <a href="#">FAQ</a>
+				</p>
+			</div>
+		</footer>
+	</body>
+</html>

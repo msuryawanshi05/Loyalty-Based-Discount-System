@@ -1,0 +1,95 @@
+{% extends 'base.html' %} {% block content %}
+<section class="dashboard">
+	<div class="container text-center py-8">
+		<h2 class="text-3xl font-bold mb-2">Welcome to RxRewards</h2>
+		<p class="text-gray-600 mb-8">
+			Manage your pharmacy rewards program and discounts efficiently.
+		</p>
+
+		<div class="grid md:grid-cols-2 gap-4 mb-4">
+			<a
+				href="{{ url_for('customers') }}"
+				class="small-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition"
+			>
+				<h3 class="text-lg font-semibold text-blue-600">Customers</h3>
+				<p class="text-gray-600 text-sm underline">
+					Manage customer profiles and track loyalty points
+				</p>
+				<p class="text-xl font-bold mt-1">
+					{{ customer_count if customer_count else 2 }}
+				</p>
+			</a>
+			<a
+				href="{{ url_for('purchases') }}"
+				class="small-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition"
+			>
+				<h3 class="text-lg font-semibold text-blue-600">
+					New Purchase
+				</h3>
+				<p class="text-gray-600 text-sm underline">
+					Process new purchases with automatic discounts
+				</p>
+				<p class="text-xl font-bold mt-1">
+					{{ purchase_count if purchase_count else 1 }}
+				</p>
+			</a>
+		</div>
+
+		<div class="grid md:grid-cols-2 gap-4 mb-4">
+			<a
+				href="{{ url_for('products') }}"
+				class="small-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition"
+			>
+				<h3 class="text-lg font-semibold text-blue-600">Products</h3>
+				<p class="text-gray-600 text-sm underline">
+					View and manage your product catalog
+				</p>
+				<p class="text-xl font-bold mt-1">
+					{{ product_count if product_count else 5 }}
+				</p>
+			</a>
+			<a
+				href="{{ url_for('discounts') }}"
+				class="small-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition"
+			>
+				<h3 class="text-lg font-semibold text-blue-600">Discounts</h3>
+				<p class="text-gray-600 text-sm underline">
+					Manage discount schemes
+				</p>
+				<p class="text-xl font-bold mt-1">
+					{{ discount_count if discount_count else 2 }}
+				</p>
+			</a>
+		</div>
+
+		<div class="grid grid-cols-1 gap-4 mb-4">
+			<div class="small-card bg-white p-4 rounded-lg shadow-md">
+				<h3 class="text-lg font-semibold text-green-600">
+					Total Loyalty Points
+				</h3>
+				<p class="text-gray-600 text-sm">
+					Points earned by all customers
+				</p>
+				<p class="text-xl font-bold mt-1">
+					{{ total_loyalty_points if total_loyalty_points else 160 }}
+				</p>
+			</div>
+		</div>
+
+		<div class="grid grid-cols-1 gap-4">
+			<div class="small-card bg-white p-4 rounded-lg shadow-md">
+				<h3 class="text-lg font-semibold text-purple-600">
+					Total Discounts Given
+				</h3>
+				<p class="text-gray-600 text-sm">
+					Total savings provided to customers
+				</p>
+				<p class="text-xl font-bold mt-1">
+					₹{{ '%.2f'|format(total_discounts if total_discounts else
+					20.93) }}
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

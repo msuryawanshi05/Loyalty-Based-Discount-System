@@ -1,0 +1,56 @@
+{% extends 'base.html' %} {% block content %}
+<section class="container">
+	<h2 class="text-2xl font-bold mb-4">Edit Purchase</h2>
+	{% if messages %} {% for category, message in messages %}
+	<div class="flash {{ category }}">{{ message }}</div>
+	{% endfor %} {% endif %}
+	<div class="form">
+		<form method="POST">
+			<div class="form-group">
+				<label for="customer_id">Customer ID</label>
+				<input
+					type="text"
+					name="customer_id"
+					id="customer_id"
+					value="{{ purchase[1] }}"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<label for="product_name">Product Name</label>
+				<input
+					type="text"
+					name="product_name"
+					id="product_name"
+					value="{{ purchase[2] }}"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<label for="purchase_date">Purchase Date</label>
+				<input
+					type="date"
+					name="purchase_date"
+					id="purchase_date"
+					value="{{ purchase[3] }}"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<label for="total_amount">Total Amount</label>
+				<input
+					type="number"
+					step="0.01"
+					name="total_amount"
+					id="total_amount"
+					value="{{ '%.2f'|format(purchase[4]) }}"
+					required
+				/>
+			</div>
+			<button type="submit" class="btn bg-blue-600 hover:bg-blue-700">
+				Update Purchase
+			</button>
+		</form>
+	</div>
+</section>
+{% endblock %}
