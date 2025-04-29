@@ -78,6 +78,7 @@ Configure and assign discounts
 Read about RxRewards in the About section
 
 💡 All prices are displayed in Indian Rupees (₹)
+
 📁 Data is stored in rxrewards.db (SQLite)
 
 🗃️ Database Schema
